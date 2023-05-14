@@ -14,20 +14,37 @@ import HorizontalScrollbar from './HorizontalScrollbar';
       fetchExercisesData();
     }, [])
     
-    const handleSearch = async() => {
-        if(search){
-             const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises',exerciseOptions);
-             
-             const searched = exercisesData.filter(
-                (exercise) => exercise.name.toLowerCase().includes(search)
-                || exercise.target.toLowerCase().includes(search)
-                || exercise.equipment.toLowerCase().includes(search)
-                || exercise.bodyPart.toLowerCase().includes(search)
-             );
-             setsearch('');
-             setExercises(SearchExercises);
+    const handleSearch = async () => {
+        if (search) {
+          const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
+    
+          const searchedExercises = exercisesData.filter(
+            (item) => item.name.toLowerCase().includes(search)
+                   || item.target.toLowerCase().includes(search)
+                   || item.equipment.toLowerCase().includes(search)
+                   || item.bodyPart.toLowerCase().includes(search),
+          );
+    
+          window.scrollTo({ top: 1800, left: 100, behavior: 'smooth' });
+    
+          setsearch('');
+          setExercises(searchedExercises);
         }
-    }
+      };
+    // const handleSearch = async() => {
+    //     if(search){
+    //          const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises',exerciseOptions);
+             
+    //          const searchedExercises = exercisesData.filter(
+    //             (exercise) => exercise.name.toLowerCase().includes(search)
+    //             || exercise.target.toLowerCase().includes(search)
+    //             || exercise.equipment.toLowerCase().includes(search)
+    //             || exercise.bodyPart.toLowerCase().includes(search)
+    //          );
+    //          setsearch('');
+    //          setExercises(searchedExercises);
+    //     }
+    // }
      
   return (
     <Stack alignItems='center' mt='37px' justifyContent='center' p='2px'>

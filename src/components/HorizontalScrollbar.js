@@ -26,22 +26,48 @@ const RightArrow = () => {
   );
 }
 
-const HorizontalScrollbar = ({data, bodyPart,setBodyPart}) => {
-  return (
-    <ScrollMenu LeftArrow ={LeftArrow} RightArrow={RightArrow}>
+// const HorizontalScrollbar = ({ data, bodyParts, setBodyPart, bodyPart }) => (
+//   <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
+//     {data.map((item) => (
+//       <Box
+//         key={item.id || item}
+//         itemId={item.id || item}
+//         title={item.id || item}
+//         m="0 40px"
+//       >
+//          <BodyPart item={item} setBodyPart={setBodyPart} bodyPart={bodyPart} />
+//       </Box>
+//     ))}
+//   </ScrollMenu>
+// );
+
+const HorizontalScrollbar = ({data, bodyPart,setBodyPart}) => (
+  
+        <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
         {data.map((item) => (
-            <Box 
+          <Box
             key={item.id || item}
             itemId={item.id || item}
             title={item.id || item}
-            m='0 40px'
-            >
-                <BodyPart item ={item} bodyPart={bodyPart} setBodyPart={setBodyPart}/>
-            </Box>
-        )
-        )}
-    </ScrollMenu>
-  )
-}
+            m="0 40px"
+          >
+             <BodyPart item={item} setBodyPart={setBodyPart} bodyPart={bodyPart} />
+          </Box>
+        ))}
+      </ScrollMenu>
+      // <ScrollMenu LeftArrow ={LeftArrow} RightArrow={RightArrow}>
+      //     {data.map((item) => (
+      //         <Box 
+      //         key={item.id || item}
+      //         itemId={item.id || item}
+      //         title={item.id || item}
+      //         m='0 40px'
+      //         >
+      //             <BodyPart item ={item} bodyPart={bodyPart} setBodyPart={setBodyPart}/>
+      //         </Box>
+      //     )
+      //     )}
+      // </ScrollMenu>
+)
 
 export default HorizontalScrollbar

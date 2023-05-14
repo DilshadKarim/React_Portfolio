@@ -1,10 +1,10 @@
 import React from 'react';
 import { Stack,Typography } from '@mui/material';
 import Icon from '../assets/icons/gym.png';
-import { Height } from '@mui/icons-material';
 
 
-const BodyPart = (item, setBodyPart, bodyPart) => {
+
+const BodyPart = ({item, setBodyPart, bodyPart}) => {
   return (
     <Stack
         type="button"
@@ -12,7 +12,7 @@ const BodyPart = (item, setBodyPart, bodyPart) => {
         justifyContent="center"
         className='boadyPart-Card'
         sx={{
-                borderTop: bodyPart ===item ? '4px solid #ff2625':'',
+                borderTop: bodyPart === item ? '4px solid #ff2625':'',
                 backgroundColor: '#fff',
                 borderBottomLeftRadius:'20px',
                 width:'270px',
@@ -21,8 +21,10 @@ const BodyPart = (item, setBodyPart, bodyPart) => {
                 gap:'47px'
             }
         }
+        
     >
         <img src={Icon} alt='dumbbel' style={{ width:'40px', height:'40px'}}/>
+        <Typography fontSize="24px" fontWeight="bold" color="#3A1212" textTransform="capitalize">{item}</Typography>
     </Stack>
   )
 }
